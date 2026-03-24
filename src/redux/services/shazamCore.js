@@ -4,7 +4,7 @@ const ITUNES_BASE_URL = 'https://itunes.apple.com';
 
 const upscaleArtwork = (url) => url?.replace(/\d+x\d+bb/g, '600x600bb') || '';
 
-const normalizeTrack = (track) => ({
+export const normalizeTrack = (track) => ({
   key: String(track.trackId || track.collectionId || `${track.artistId || 'artist'}-${track.trackName || track.collectionName || 'track'}`),
   title: track.trackName || track.collectionName || track.artistName || 'Unknown track',
   subtitle: track.artistName || 'Unknown artist',
@@ -22,7 +22,7 @@ const normalizeTrack = (track) => ({
   previews: track.previewUrl ? [{ url: track.previewUrl }] : [],
 });
 
-const normalizeTrackList = (results = []) => results
+export const normalizeTrackList = (results = []) => results
   .filter((track) => track.wrapperType === 'track' && track.kind === 'song')
   .map(normalizeTrack)
   .filter((track) => track.hub.actions.length > 0);
