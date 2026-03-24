@@ -36,7 +36,7 @@ This project uses public iTunes endpoints (no API key required).
 
 ## Branching and TDD Flow
 - main: stable release branch
-- chore/github-readiness: repository standards and GitHub files
+- chore: repository standards and GitHub files
 - test/tdd-normalizers: red-green unit test commits for track normalization
 
 ## Project Structure
